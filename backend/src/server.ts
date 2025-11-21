@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(generalLimiter);
 
 // Health check
-app.get('/health', (req: Request, res: Response) => {
+app.get('/health', (_req: Request, res: Response) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
@@ -38,12 +38,12 @@ app.use('/api/ai', aiRoutes);
 app.use('/api/payments', paymentRoutes);
 
 // 404 handler
-app.use((req: Request, res: Response) => {
+app.use((_req: Request, res: Response) => {
   res.status(404).json({ error: 'Route not found' });
 });
 
 // Error handler
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
   logger.error('Unhandled error:', err);
   res.status(500).json({ error: 'Internal server error' });
 });

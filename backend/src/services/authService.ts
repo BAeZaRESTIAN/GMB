@@ -1,5 +1,4 @@
 import bcrypt from 'bcryptjs';
-import { v4 as uuidv4 } from 'uuid';
 import database from '../config/database';
 import { User, UserRole } from '../types';
 import { generateAccessToken, generateRefreshToken } from '../utils/jwt';

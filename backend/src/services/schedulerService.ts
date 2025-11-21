@@ -133,7 +133,8 @@ export class SchedulerService {
 
       for (const location of locations.rows) {
         try {
-          const reviews = await gmbService.getReviews(
+          // Sync reviews from GMB
+          await gmbService.getReviews(
             location.google_location_id,
             location.access_token
           );

@@ -1,5 +1,4 @@
 import QRCode from 'qrcode';
-import { v4 as uuidv4 } from 'uuid';
 import database from '../config/database';
 import logger from '../utils/logger';
 
